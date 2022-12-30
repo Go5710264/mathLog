@@ -15,8 +15,6 @@ export default class BalanceDetermination {
       this.attack *= 0.7;
     } else if (cell === 5) {
       this.attack *= 0.6;
-    } else {
-      console.log('Подойдите к противнику ближе');
     }
     /* eslint no-underscore-dangle: ["error", { "allow": ["_distance"] }] */
     this._distance = cell;
@@ -27,7 +25,7 @@ export default class BalanceDetermination {
   }
 
   stoned() {
-    this.attack -= Math.log2(this.distance) * 5;
-    return this.attack;
+    this.mathStoned = Math.round(this.attack - Math.log2(this.distance) * 5);
+    return this.mathStoned;
   }
 }
